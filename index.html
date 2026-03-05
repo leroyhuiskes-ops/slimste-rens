@@ -2,19 +2,8 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>De Slimste Rens</title>
-
-
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#9b0000">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Slimste Rens">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
 
 <style>
   :root{
@@ -44,7 +33,7 @@
     background-color: var(--red);
 
     /* JOUW BIJLAGE: zet hem naast deze HTML en noem 'background.png' */
-    background-image: url("background copy.png");
+    background-image: url("background.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -584,169 +573,64 @@
     50%{ filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
   }
 
-  /* ====== MOBILE OPTIMIZATIONS ====== */
-  @media (max-width: 560px){
 
-    /* Avoid flex-centering quirks on mobile: ensure content starts at top and can scroll */
-    html, body{
-      height: auto;
-      min-height: 100vh;
-    }
-    body{
-      display: block;
-      justify-content: initial;
-      align-items: initial;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-top: max(12px, env(safe-area-inset-top));
-      padding-bottom: max(16px, env(safe-area-inset-bottom));
-    }
-    .app{
-      width: 100%;
-    }
-    body{
-      padding: 12px;
-      background-attachment: scroll;
-    }
+/* ===== Finale big timers ===== */
+.finaleView .app{
+  width: min(1500px, 100%);
+}
+.finaleView .grid{
+  grid-template-columns: repeat(2, minmax(420px, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+.finaleView .card{
+  transform: none !important;
+}
+.finaleView .inner{
+  padding: 26px 22px 22px;
+}
+.finaleView .team{
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+.finaleView .team .tag{
+  padding: 10px 16px;
+}
+.finaleView .circle{
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 20px;
+}
+.finaleView .time{
+  font-size: 58px;
+}
+.finaleView .controls button,
+.finaleView .reset{
+  padding: 14px 16px;
+  font-size: 18px;
+}
+.finaleView .adders{
+  gap: 10px;
+}
+.finaleView .adders{
+  display:flex;
+}
+.finaleView .adder{
+  flex:1;
+  padding: 14px 16px;
+  font-size: 18px;
+  border-radius: 14px;
+}
+.finaleView .footer{
+  font-size: 15px;
+  margin-top: 14px;
+}
 
-    .topbar{
-      flex-direction: column;
-      align-items: stretch;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .brand{
-      justify-content: center;
-    }
-
-    .logo{
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-    }
-
-    .titlewrap{
-      text-align: center;
-    }
-
-    .title{
-      font-size: 16px;
-      letter-spacing: 0.7px;
-    }
-
-    .subtitle{
-      font-size: 12px;
-      line-height: 1.25;
-    }
-
-    .actions{
-      width: 100%;
-      gap: 10px;
-    }
-
-    .actions .pill{
-      flex: 1;
-      justify-content: center;
-      padding: 12px 12px;
-      font-size: 13px;
-    }
-
-    .grid{
-      grid-template-columns: 1fr !important;
-      gap: 12px;
-    }
-
-    .inner{
-      padding: 16px 14px 14px;
-    }
-
-    .team{
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-
-    .circle{
-      width: 190px;
-      height: 190px;
-      margin-bottom: 12px;
-    }
-
-    .time{
-      font-size: 46px;
-    }
-
-    .controls button{
-      padding: 14px 14px;
-      border-radius: 16px;
-      font-size: 14px;
-    }
-
-    .adders{
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-    }
-
-    .adder{
-      padding: 12px 0;
-      border-radius: 14px;
-      font-size: 12px;
-    }
-
-    .reset{
-      padding: 14px 14px;
-      border-radius: 16px;
-      font-size: 14px;
-    }
-
-    .footer{
-      font-size: 12px;
-    }
-
-    /* Overlay on mobile */
-    .overlay{
-      padding: 14px;
-    }
-
-    .stage{
-      border-radius: 22px;
-    }
-
-    .stageHeader{
-      padding: 14px 14px 10px;
-    }
-
-    .closeBtn{
-      padding: 12px 12px;
-    }
-
-    .bigCircle{
-      width: min(420px, 92vw);
-    }
-
-    .bigTime{
-      font-size: clamp(56px, 13vw, 86px);
-    }
-
-    .stageControls .row button{
-      padding: 14px 14px;
-      border-radius: 16px;
-      font-size: 14px;
-    }
-
-    .stageControls .adder{
-      padding: 12px 0;
-      border-radius: 14px;
-      font-size: 12px;
-    }
-
-    .stageControls .reset{
-      padding: 14px 14px;
-      border-radius: 16px;
-      font-size: 14px;
-    }
+@media (max-width: 980px){
+  .finaleView .grid{
+    grid-template-columns: 1fr;
   }
-
+}
 </style>
 </head>
 
@@ -756,7 +640,7 @@
       <div class="brand">
         <div class="logo" title="Slimste Mens">
           <!-- Zet jouw eerder ring-logo naast de HTML als slimste.png -->
-          <img src="slimste copy.png" alt="Slimste Mens thema" />
+          <img src="slimste.png" alt="Slimste Mens thema" />
         </div>
         <div class="titlewrap">
           <h1 class="title">De Slimste Rens</h1>
@@ -770,21 +654,6 @@
     </div>
 
     <section class="grid" id="grid"></section>
-    <div id="jsNotice" style="display:none;margin-top:14px;padding:14px 16px;border-radius:18px;
-      border:1px solid rgba(244,206,9,0.35);background:rgba(0,0,0,0.22);color:rgba(255,255,255,0.92);
-      font-weight:850;line-height:1.25;">
-      Timers laden niet. Open dit bestand in <b>Safari</b> (niet in de iOS preview/Bestanden-weergave).
-      Gebruik <b>Delen</b> → <b>Open in Safari</b>.
-    </div>
-
-    <noscript>
-      <div style="margin-top:14px;padding:14px 16px;border-radius:18px;
-        border:1px solid rgba(244,206,9,0.35);background:rgba(0,0,0,0.22);color:rgba(255,255,255,0.92);
-        font-weight:850;line-height:1.25;">
-        JavaScript staat uit of wordt geblokkeerd. Open dit bestand in <b>Safari</b>.
-      </div>
-    </noscript>
-
   </div>
 
   <!-- Quizmodus overlay -->
@@ -844,13 +713,10 @@
   }
 
   // ---- Time utils ----
-  const pad2 = (n) => String(n).padStart(2, "0");
-  const fmt = (sec) => {
-    sec = Math.max(0, Math.floor(sec));
-    const m = Math.floor(sec / 60);
-    const s = sec % 60;
-    return `${pad2(m)}:${pad2(s)}`;
-  };
+const fmt = (sec) => {
+  sec = Math.max(0, Math.floor(sec));
+  return String(sec);
+};
 
   class CountdownTimer {
     constructor(teamName){
@@ -937,6 +803,7 @@
         if (action === "pause") this.pause();
         if (action === "reset") this.reset();
         if (action === "add") this.add(Number(btn.dataset.sec));
+        if (action === "steal") stealTime(this, Number(btn.dataset.sec));
         this.render();
       });
 
@@ -1050,6 +917,23 @@
   ];
   timers.forEach(t => grid.appendChild(t.el));
 
+function stealTime(active, sec){
+  const visible = timers.filter(t => t.el.style.display !== "none");
+  const other = visible.find(t => t !== active);
+  if(!other) return;
+
+  other.remaining = Math.max(0, other.remaining - sec);
+
+  if (other.remaining === 0){
+    other.done = true;
+    other.pause();
+    playBeep();
+  } else {
+    other.done = false;
+  }
+}
+
+
   // ---- Finale mode (pick 2 teams and open a new window) ----
   const finaleBtn = document.getElementById("finaleBtn");
   let finaleMode = false;
@@ -1087,439 +971,58 @@
     timer.el.classList.add("finaleSelected");
 
     if (finaleSelected.length === 2){
-      openFinaleWindow(finaleSelected);
+      enterFinaleView(finaleSelected);
       setFinaleMode(false);
     }
   }
 
-  function openFinaleWindow(picks){
-    const css = document.querySelector("style")?.innerHTML || "";
-    const payload = picks.map(t => ({
-      teamName: t.teamName,
-      remaining: t.remaining,
-      max: t._max,
-      running: t.running,
-      done: t.done,
-    }));
+  
+// ---- Finale view (same page, no popup) ----
+const backBtn = document.createElement("button");
+backBtn.className = "pill pillSmall";
+backBtn.textContent = "⬅ Terug";
+backBtn.style.display = "none";
+document.querySelector(".actions").prepend(backBtn);
 
-    const w = window.open("", "_blank", "noopener,noreferrer");
-    if (!w){
-      alert("Popup geblokkeerd: sta popups toe om de Finale te openen.");
-      return;
+let finaleView = false;
+
+function enterFinaleView(picks){
+  // change add buttons to -20 steal
+  picks.forEach(t=>{
+    const adders = t.el.querySelector(".adders");
+    if(adders){
+      adders.dataset.original = adders.innerHTML;
+      adders.innerHTML = '<button class="adder" data-action="steal" data-sec="20">-20</button>';
     }
+  });
 
-    const html = `<!doctype html>
-<html lang="nl">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Finale — De Slimste Rens</title>
-<style>${css}
+  finaleView = true;
+  document.body.classList.add("finaleView");
+  backBtn.style.display = "";
 
-/* Finale window tweaks */
-.topbar .subtitle{ display:none; }
-.actions{ gap:8px; }
-#finaleHint{
-  margin-left: 8px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.82);
+  timers.forEach(t=>{
+    t.el.style.display = picks.includes(t) ? "" : "none";
+  });
 }
-</style>
-</head>
-<body>
-  <div class="app">
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo" title="Slimste Mens">
-          <img src="slimste.png" alt="Slimste Mens thema" />
-        </div>
-        <div class="titlewrap">
-          <h1 class="title">Finale</h1>
-          <p class="subtitle">Klik op een team voor Quizmodus</p>
-        </div>
-      </div>
 
-      <div class="actions">
-        <button class="pill pillSmall" id="closeWin">✕ Sluiten</button>
-        <button class="pill" id="fsBtn2">⛶ Fullscreen</button>
-      </div>
-    </div>
-
-    <section class="grid" id="grid2"></section>
-  </div>
-
-  <!-- Quizmodus overlay -->
-  <div class="overlay" id="overlay" aria-hidden="true">
-    <div class="stage" role="dialog" aria-modal="true" aria-label="Quizmodus">
-      <div class="stageHeader">
-        <div class="stageTeam">
-          <span class="bigLamp" id="stageLamp" aria-hidden="true"></span>
-          <span id="stageTeamName">Team</span>
-        </div>
-        <button class="closeBtn" id="closeBtn">✕</button>
-      </div>
-
-      <div class="stageBody">
-        <div class="bigCircle" id="bigCircle">
-          <svg viewBox="0 0 160 160" aria-hidden="true">
-            <circle class="ring-bg" cx="80" cy="80" r="60"></circle>
-            <circle class="ring" id="stageRing" cx="80" cy="80" r="60"></circle>
-          </svg>
-          <div class="bigTime" id="stageTime">00:00</div>
-        </div>
-
-        <div class="stageControls">
-          <div class="row">
-            <button class="play" id="stagePlay">Play</button>
-            <button class="pause" id="stagePause">Pauze</button>
-          </div>
-          <div class="adders">
-            <button class="adder" data-sec="10">+10</button>
-            <button class="adder" data-sec="20">+20</button>
-            <button class="adder" data-sec="30">+30</button>
-            <button class="adder" data-sec="40">+40</button>
-            <button class="adder" data-sec="50">+50</button>
-          </div>
-          <button class="reset" id="stageReset">Reset</button>
-
-          <div class="note">Finale modus: alleen de 2 geselecteerde teams.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<script>
-  const initial = ${JSON.stringify(payload)};
-
-  // ---- Offline beep (WebAudio) ----
-  function playBeep(){
-    try{
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const o = ctx.createOscillator();
-      const g = ctx.createGain();
-      o.type = "square";
-      o.frequency.value = 880;
-      g.gain.value = 0.0001;
-      o.connect(g); g.connect(ctx.destination);
-      o.start();
-      g.gain.exponentialRampToValueAtTime(0.22, ctx.currentTime + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.35);
-      o.stop(ctx.currentTime + 0.38);
-    }catch(e){}
-  }
-
-  const pad2 = (n) => String(n).padStart(2, "0");
-  const fmt = (sec) => {
-    sec = Math.max(0, Math.floor(sec));
-    const m = Math.floor(sec / 60);
-    const s = sec % 60;
-    return \`\${pad2(m)}:\${pad2(s)}\`;
-  };
-
-  class CountdownTimer {
-    constructor(teamName){
-      this.teamName = teamName;
-      this.remaining = 0;
-      this.running = false;
-      this.done = false;
-      this._max = 1;
-
-      this._interval = null;
-      this._lastTick = 0;
-
-      this.el = this._build();
-      this.render();
-    }
-
-    _build(){
-      const card = document.createElement("div");
-      card.className = "card";
-      card.tabIndex = 0;
-
-      const r = 60;
-      const c = 2 * Math.PI * r;
-      this._circ = c;
-
-      card.innerHTML = \`
-        <div class="inner">
-          <div class="team">
-            <span class="tag">
-              <span class="lamp" aria-hidden="true"></span>
-              <span>\${this.teamName}</span>
-            </span>
-          </div>
-
-          <div class="circle">
-            <svg viewBox="0 0 160 160" aria-hidden="true">
-              <circle class="ring-bg" cx="80" cy="80" r="\${r}"></circle>
-              <circle class="ring" cx="80" cy="80" r="\${r}"></circle>
-            </svg>
-            <div class="time">00:00</div>
-          </div>
-
-          <div class="controls">
-            <button class="play" data-action="play">Play</button>
-            <button class="pause" data-action="pause">Pauze</button>
-          </div>
-
-          <div class="adders">
-            <button class="adder" data-action="add" data-sec="10">+10</button>
-            <button class="adder" data-action="add" data-sec="20">+20</button>
-            <button class="adder" data-action="add" data-sec="30">+30</button>
-            <button class="adder" data-action="add" data-sec="40">+40</button>
-            <button class="adder" data-action="add" data-sec="50">+50</button>
-          </div>
-
-          <button class="reset" data-action="reset">Reset</button>
-
-          <div class="footer">
-            <span>Status: <span data-role="status">pauze</span></span>
-            <span><span class="kbd">Spatie</span> / <span class="kbd">R</span></span>
-          </div>
-        </div>
-      \`;
-
-      this._lamp = card.querySelector(".lamp");
-      this._timeEl = card.querySelector(".time");
-      this._ring = card.querySelector(".ring");
-      this._status = card.querySelector('[data-role="status"]');
-      this._playBtn = card.querySelector('[data-action="play"]');
-      this._circleWrap = card.querySelector(".circle");
-
-      this._ring.style.strokeDasharray = String(this._circ);
-      this._ring.style.strokeDashoffset = String(this._circ);
-
-      card.addEventListener("click", (e) => {
-        const btn = e.target.closest("button");
-        if (!btn) return;
-        e.stopPropagation();
-
-        const action = btn.dataset.action;
-        if (action === "play") this.start();
-        if (action === "pause") this.pause();
-        if (action === "reset") this.reset();
-        if (action === "add") this.add(Number(btn.dataset.sec));
-        this.render();
-      });
-
-      card.addEventListener("keydown", (e) => {
-        if (e.code === "Space"){
-          e.preventDefault();
-          this.toggle();
-          this.render();
-        } else if (e.key.toLowerCase() === "r"){
-          this.reset();
-          this.render();
-        }
-      });
-
-      return card;
-    }
-
-    add(sec){
-      this.remaining = Math.max(0, this.remaining + sec);
-      this._max = Math.max(this._max, this.remaining);
-      if (this.remaining > 0) this.done = false;
-    }
-
-    reset(){
-      this.remaining = 0;
-      this._max = 1;
-      this.done = false;
-      this.pause();
-    }
-
-    start(){
-      if (this.running) return;
-      if (this.remaining <= 0) return;
-
-      this.running = true;
-      this.done = false;
-      this._lastTick = performance.now();
-
-      this._interval = setInterval(() => this._tick(), 140);
-    }
-
-    pause(){
-      if (!this.running) return;
-      this.running = false;
-      clearInterval(this._interval);
-      this._interval = null;
-    }
-
-    toggle(){
-      this.running ? this.pause() : this.start();
-    }
-
-    _tick(){
-      if (!this.running) return;
-
-      const now = performance.now();
-      const delta = now - this._lastTick;
-      const dec = Math.floor(delta / 1000);
-
-      if (dec > 0){
-        this.remaining -= dec;
-        this._lastTick += dec * 1000;
-
-        if (this.remaining <= 0){
-          this.remaining = 0;
-          this.done = true;
-          this.pause();
-          playBeep();
-        }
-      }
-    }
-
-    render(){
-      this._timeEl.textContent = fmt(this.remaining);
-
-      const ratio = (this._max <= 0) ? 0 : (this.remaining / this._max);
-      const clamped = Math.max(0, Math.min(1, ratio));
-      const offset = this._circ * (1 - clamped);
-      this._ring.style.strokeDashoffset = String(offset);
-
-      this._status.textContent = this.done ? "klaar" : (this.running ? "loopt" : "pauze");
-      this._lamp.classList.toggle("running", this.running);
-      this._lamp.classList.toggle("done", this.done);
-      this._timeEl.classList.toggle("done", this.done);
-      this._playBtn.disabled = (this.remaining <= 0);
-
-      this.el.classList.toggle("pulse", this.remaining > 0 && this.remaining <= 10 && !this.done);
-      this.el.classList.toggle("panic", this.remaining > 0 && this.remaining <= 5 && !this.done);
-      this._circleWrap.classList.toggle("blink", this.remaining > 0 && this.remaining <= 5 && !this.done);
-    }
-  }
-
-  // Build only the 2 selected timers
-  const grid2 = document.getElementById("grid2");
-  const timers = initial.map(s => {
-    const t = new CountdownTimer(s.teamName);
-    t.remaining = s.remaining || 0;
-    t._max = Math.max(1, s.max || t.remaining || 1);
-    t.done = !!s.done;
-    t.render();
-    if (s.running && t.remaining > 0) t.start();
-    return t;
-  });
-  timers.forEach(t => grid2.appendChild(t.el));
-
-  // ---- Quizmodus overlay wiring ----
-  const overlay = document.getElementById("overlay");
-  const closeBtn = document.getElementById("closeBtn");
-  const stageTeamName = document.getElementById("stageTeamName");
-  const stageLamp = document.getElementById("stageLamp");
-  const stageTime = document.getElementById("stageTime");
-  const stageRing = document.getElementById("stageRing");
-  const stagePlay = document.getElementById("stagePlay");
-  const stagePause = document.getElementById("stagePause");
-  const stageReset = document.getElementById("stageReset");
-  const bigCircle = document.getElementById("bigCircle");
-
-  const stageR = 60;
-  const stageC = 2 * Math.PI * stageR;
-  stageRing.style.strokeDasharray = String(stageC);
-  stageRing.style.strokeDashoffset = String(stageC);
-
-  let activeTimer = null;
-
-  function openQuiz(timer){
-    activeTimer = timer;
-    stageTeamName.textContent = timer.teamName;
-    overlay.classList.add("show");
-    overlay.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    renderStage();
-  }
-
-  function closeQuiz(){
-    overlay.classList.remove("show");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    activeTimer = null;
-  }
-
-  timers.forEach((t) => {
-    t.el.addEventListener("click", () => {
-      if (finaleMode){
-        pickFinalist(t);
-      } else {
-        openQuiz(t);
-      }
-    });
-  });
-
-  closeBtn.addEventListener("click", closeQuiz);
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeQuiz();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay.classList.contains("show")) closeQuiz();
-  });
-
-  stagePlay.addEventListener("click", () => { if (activeTimer){ activeTimer.start(); activeTimer.render(); renderStage(); }});
-  stagePause.addEventListener("click", () => { if (activeTimer){ activeTimer.pause(); activeTimer.render(); renderStage(); }});
-  stageReset.addEventListener("click", () => { if (activeTimer){ activeTimer.reset(); activeTimer.render(); renderStage(); }});
-  document.querySelectorAll(".stageControls .adder").forEach(btn => {
-    btn.addEventListener("click", () => {
-      if (!activeTimer) return;
-activeTimer.remaining = Math.max(0, activeTimer.remaining - Number(btn.dataset.sec));
-      activeTimer.render();
-      renderStage();
-    });
-  });
-
-  function renderStage(){
-    if (!activeTimer) return;
-
-    stageTime.textContent = fmt(activeTimer.remaining);
-    stageTime.classList.toggle("done", activeTimer.done);
-
-    stageLamp.classList.toggle("running", activeTimer.running);
-    stageLamp.classList.toggle("done", activeTimer.done);
-
-    const ratio = (activeTimer._max <= 0) ? 0 : (activeTimer.remaining / activeTimer._max);
-    const clamped = Math.max(0, Math.min(1, ratio));
-    const offset = stageC * (1 - clamped);
-    stageRing.style.strokeDashoffset = String(offset);
-
-    bigCircle.classList.toggle("panic", activeTimer.remaining > 0 && activeTimer.remaining <= 5 && !activeTimer.done);
-    bigCircle.classList.toggle("pulse", activeTimer.remaining > 0 && activeTimer.remaining <= 10 && !activeTimer.done);
-  }
-
-  (function raf(){
-    timers.forEach(t => t.render());
-    if (activeTimer) renderStage();
-    requestAnimationFrame(raf);
-  })();
-
-  // ---- Auto fullscreen on open (best effort; may be blocked by browser) ----
-  (async function autoFullscreen(){
-    try{
-      if (!document.fullscreenElement && document.documentElement.requestFullscreen){
-        await document.documentElement.requestFullscreen();
-      }
-    }catch(e){}
-  })();
-
-  // ---- Fullscreen + close ----
-  document.getElementById("closeWin").addEventListener("click", () => window.close());
-  document.getElementById("fsBtn2").addEventListener("click", async () => {
-    if (!document.fullscreenElement) {
-      await document.documentElement.requestFullscreen?.();
-    } else {
-      await document.exitFullscreen?.();
+function exitFinaleView(){
+  // restore original add buttons
+  timers.forEach(t=>{
+    const adders=t.el.querySelector(".adders");
+    if(adders && adders.dataset.original){
+      adders.innerHTML = adders.dataset.original;
+      delete adders.dataset.original;
     }
   });
-<\/script>
-</body>
-</html>`;
 
-    w.document.open();
-    w.document.write(html);
-    w.document.close();
-  }
+  finaleView = false;
+  document.body.classList.remove("finaleView");
+  backBtn.style.display = "none";
+  timers.forEach(t=> t.el.style.display = "");
+}
+
+backBtn.addEventListener("click", ()=> exitFinaleView());
+
 
 
   // ---- Quizmodus overlay wiring ----
@@ -1561,6 +1064,10 @@ activeTimer.remaining = Math.max(0, activeTimer.remaining - Number(btn.dataset.s
   // open on card click (but not when clicking buttons inside)
   timers.forEach((t) => {
     t.el.addEventListener("click", () => {
+
+      // In finale view: don't open the big quiz overlay on card click
+      if (finaleView) return;
+
       if (finaleMode){
         pickFinalist(t);
       } else {
@@ -1620,18 +1127,6 @@ closeBtn.addEventListener("click", closeQuiz);
     requestAnimationFrame(raf);
   })();
 
-  // ---- If timers didn't mount (common in iOS preview/Quick Look), show a notice ----
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      const g = document.getElementById("grid");
-      const notice = document.getElementById("jsNotice");
-      if (g && notice && g.children.length === 0){
-        notice.style.display = "block";
-      }
-    }, 250);
-  });
-
-
   // ---- Fullscreen ----
   const fsBtn = document.getElementById("fsBtn");
   fsBtn.addEventListener("click", async () => {
@@ -1641,16 +1136,6 @@ closeBtn.addEventListener("click", closeQuiz);
       await document.exitFullscreen?.();
     }
   });
-
-  // ---- PWA: service worker (requires https or localhost) ----
-  (function(){
-    if ('serviceWorker' in navigator){
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
-      });
-    }
-  })();
-
 </script>
 </body>
 </html>
